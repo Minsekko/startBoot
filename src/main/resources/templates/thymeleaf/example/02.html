@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title th:text>"${pokemon.name}"</title>
+</head>
+<body>
+
+<div th:if="${role == 'admin'}">
+    <button>삭제</button>
+    <button>수정</button>
+</div>
+<div th:unless="${role == 'admin'}">
+    <button>추천</button>
+</div>
+
+
+<div>
+    <h2 th:text="${pokemon.name}"></h2>
+    <div th:if="${pokemon.unique}">
+        <span style="display: inline-block; padding :5px;background-color:orange">유일</span>
+    </div>
+    <div th:unless="${pokemon.unique}">
+        <span style="display: inline-block; padding :5px;background-color:greenyellow">흔함</span>
+    </div>
+    <p>
+        <img th:src="${pokemon.imageUrl}"/>
+    </p>
+
+    <p>
+        속성: <span th:text="${pokemon.type}"></span>
+    </p>
+</div>
+</body>
+</html>

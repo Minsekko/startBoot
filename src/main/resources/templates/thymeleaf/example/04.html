@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:box-shadow="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokemon ImageList</title>
+</head>
+<body>
+<div style="display: flex; padding: 10px; gap: 30px">
+    <div th:each="one : ${pokemons}"
+            style="width: 200px; padding:10px; background-color: #fef3f7; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+        <h3 th:text="${one.name}"> 나옹</h3>
+        <div>
+            <a th:href="@{/pokemon/view/{id}(id=${one.id})}">
+                <img th:src="${one.imageUrl}" style="width: 100%"/>
+            </a>
+        </div>
+        <p>
+            <span style="display: inline-block; width: 100px;
+            padding: 4px;background-color: darkgreen;
+            color: white;text-align: center;font-weight: bold;border-radius: 5px" th:text="${one.type}"></span>
+
+        </p>
+    </div>
+
+</div>
+</div>
+</body>
+</html>
