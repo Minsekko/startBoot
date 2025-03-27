@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.codenova.start.repository.BookRepository">
+    <select id="findAll" resultType="book">
+        select * from books order by published_at desc
+    </select>
+    <insert id="create" parameterType="book">
+        insert into books(title, author, publisher, published_at)
+            values(#{title},#{author},#{publisher},#{publishedAt})
+    </insert>
+
+</mapper>

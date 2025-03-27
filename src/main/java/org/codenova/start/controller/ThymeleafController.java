@@ -16,7 +16,7 @@ public class ThymeleafController {
         String[] keywords = new String[] {"도전","기회","성장","행운","인내","집중","열정","자신감","전환"};
 
         model.addAttribute("keyword",keywords[(int)(Math.random()*keywords.length)]);
-        model.addAttribute("number",(int)(Math.random() *10)+1);
+        model.addAttribute("number",(int)(Math.random()*10)+1);
 
         model.addAttribute("message","<script>alert('??');</script>");
 
