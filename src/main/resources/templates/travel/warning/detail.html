@@ -4,9 +4,47 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-<h2 th:text="${data.countryName}"></h2>
-<img th:src="${data.imgUrl2}"/>
-<p th:text="${data.getAttentionNote()}"></p>
+<body style="margin: 0">
+<div style="display: flex; height: 100vh;">
+    <div style="padding: 10px">
+        <div style="display: flex; height: 40px; align-items: center; border-bottom : 1px solid rgba(0,0,0, 0.3)">
+            <img th:src="${data.imgUrl}" style="height: 70%; margin-right: 10px;"/>
+            <span th:text="${data.countryName}"></span>
+            (<small th:text="${data.countryEnName}"></small>)
+            |
+            <span th:text="${data.continent}"></span>
+        </div>
+        <div style="padding: 10px">
+            <div>
+                <img th:src="${data.imgUrl2}" style="height:90vh; object-fit: cover"/>
+            </div>
+        </div>
+    </div>
+    <div style="flex : 1; padding : 10px">
+        <div style="height: 100px; border: 1px solid rgba(0,0,0,0.3); padding : 10px">
+            주의할 점들 출력할 예정
+        </div>
+        <div style="margin-top:10px">
+            <h3 style="margin: 3px;">의견남기기(4)</h3>
+            <form th:action="@{/travel/comment-create}">
+                <input type="hidden" name="isoCode" th:value="${data.isoCode}" />
+                <textarea name="body"
+                        style="width: 100%; height:70px; resize: none; box-sizing: border-box; padding:4px"></textarea>
+                <button type="submit" style="width: 100%; padding:4px">등록</button>
+            </form>
+        </div>
+        <div>
+            <p style="border-bottom: 1px solid rgba(0,0,0,0.3); line-height: 1.7;">
+                최근에 아르헨티나 다녀오신 분 계시면 정보 공유좀  <small style="color: gray">4일전</small>
+            </p>
+            <p style="border-bottom: 1px solid rgba(0,0,0,0.3); line-height: 1.7;">
+                저 현지 교민입니다. 머가 궁금하신가요?  <small style="color: gray">3일전</small>
+            </p>
+        </div>
+    </div>
+
+
+    </p>
+</div>
 </body>
 </html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.codenova.start.repository.TravelRepository">
+<insert id="create" parameterType="TravelComment">
+    insert into comments (iso_code, body, writed_at)
+    values (#{isoCode}, #{body}, now())
+</insert>
+<select id="findByIsoCode" resultType="TravelComment" parameterType="String">
+    select * from comments where iso_code=#{isoCode}
+</select>
+</mapper>
