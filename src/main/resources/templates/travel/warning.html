@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="margin: 0">
+<h1>여행경보</h1>
+<p>
+    여행경보제도는 특정 국가(지역) 여행·체류시 특별한 주의가 요구되는 국가 및 지역에 경보를 지정하여 위험수준과 이에 따른 안전대책(행동지침)의 기준을 안내하는 제도입니다.
+    외교부의 공식 자료를 사용합니다.
+</p>
+<div style="display: flex; flex-wrap: wrap">
+    <div th:each="one : ${travelWarnings}" style="width:18%; padding: 10px">
+        <div>
+            <img th:src="${one.imgUrl}" style="width: 100%; "/>
+            <p>
+                <small style="display: inline-block; background-color: orange; color:white; padding: 3px 10px; border-radius: 10%"
+                       th:if="${one.attention == 'Y'}">여행유의</small>
+            </p>
+            <div style="display: flex; justify-content: space-between">
+                <div>
+                    <span th:text="${one.isoCode}"></span> |
+                    <span th:text="${one.countryName}"></span>
+                    (<small th:text="${one.continent}"></small> )
+                </div>
+                <div>
+                    <a th:href="@{/travel/warning/detail(isoCode=${one.isoCode})}"
+                            style="font-size: smaller"> 더보기 </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<p style="display: flex; gap:10px; justify-content: center">
+    <a th:each="n: ${#numbers.sequence(1,20)}" th:text="${n}"
+       th:href="@{/travel/warning(p=${n})}">
+    </a>
+</p>
+
+</body>
+</html>

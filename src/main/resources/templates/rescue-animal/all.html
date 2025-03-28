@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SpringBoot</title>
+</head>
+<body>
+    <h1> 외부 API 연동 </h1>
+<p>
+    이 데이터는 농림축산식품 농림축산검역본부_국가동물보호정보시스템 구조동물 조회 서비스 입니다.
+</p>
+<p>
+    등록된 전체 데이터 동물은: <span th:text="${body.totalCount}"></span> 건이며 최신 20건만 조회 됩니다
+</p>
+<div style="display: flex; flex-wrap: wrap; gap:5px">
+    <div th:each="one : ${body.items.item}" style="width: 23%; flex-shrink: 1">
+        <div>
+            <img th:src="${one.popfile1}" style="width: 100%; border-radius: 10%"/>
+        </div>
+    </div>
+</div>
+</body>
+</html>
