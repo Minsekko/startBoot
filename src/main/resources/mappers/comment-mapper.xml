@@ -10,4 +10,7 @@
 <select id="findByIsoCode" resultType="TravelComment" parameterType="String">
     select * from comments where iso_code=#{isoCode}
 </select>
+<select id="findCountByIsoCode" resultType="TravelCount" parameterType="String">
+    select count(*) As count from comments where iso_code=#{isoCode}
+</select>
 </mapper>
